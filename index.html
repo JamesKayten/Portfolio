@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James — Portfolio</title>
+    <!-- Preconnect to image host for faster loading -->
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+    <!-- Preload first images of each photography subcategory -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800">
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800">
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <main class="main-content">
+            <div class="content-area" id="contentArea">
+                <h1>Welcome</h1>
+                <p>Select a category and subcategory from the sidebar to explore the collection.</p>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <div class="category">
+                <div class="category-title" data-category="photography" onclick="toggleAccordion(this)">
+                    Photography
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="subcategory" data-sub="people" onclick="loadContent('photography', 'people', this)">People</div>
+                    <div class="subcategory" data-sub="places" onclick="loadContent('photography', 'places', this)">Places</div>
+                    <div class="subcategory" data-sub="product" onclick="loadContent('photography', 'product', this)">Product</div>
+                </div>
+            </div>
+
+            <div class="category">
+                <div class="category-title" data-category="design" onclick="toggleAccordion(this)">
+                    Design
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="subcategory" data-sub="objects" onclick="loadContent('design', 'objects', this)">Objects</div>
+                    <div class="subcategory" data-sub="inside" onclick="loadContent('design', 'inside', this)">Inside</div>
+                    <div class="subcategory" data-sub="outside" onclick="loadContent('design', 'outside', this)">Outside</div>
+                </div>
+            </div>
+
+            <div class="category">
+                <div class="category-title" data-category="journal" onclick="toggleAccordion(this)">
+                    Journal
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="subcategory" data-sub="good-life" onclick="loadContent('journal', 'good-life', this)">Good Life</div>
+                    <div class="subcategory" data-sub="design" onclick="loadContent('journal', 'design', this)">Design</div>
+                    <div class="subcategory" data-sub="fiction" onclick="loadContent('journal', 'fiction', this)">Fiction</div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="close" onclick="closeLightbox()">×</span>
+        <div class="lightbox-content">
+            <img id="lightboxImg" src="" alt="">
+            <div id="lightboxCaption" class="lightbox-caption"></div>
+        </div>
+        <button class="prev" onclick="changeImage(-1)">❮</button>
+        <button class="next" onclick="changeImage(1)">❯</button>
+    </div>
+
+    <script src="js/accordion.js"></script>
+    <script src="js/gallery.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
